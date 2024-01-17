@@ -20,7 +20,7 @@ public class AccountRestController {
     {
        return  this.ar.findAll();
     }
-    @GetMapping("Account/{id}")
+    @GetMapping("Accounts/{id}")
     public Account getAccount(@PathVariable String id)
     {
         return this.ar.findById(id).get();
