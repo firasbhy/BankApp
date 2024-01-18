@@ -20,7 +20,7 @@ public class CostumerRestController {
     {
         return this.cr.findAll();
     }
-    @GetMapping("/customers/{id}")
+    @GetMapping("/customer/{id}")
     public  Costumer getCostumer(@PathVariable Long id)
     {
         return  this.cr.findById(id).get();
