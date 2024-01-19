@@ -22,7 +22,12 @@ public class AccountRestController {
     @GetMapping("Accounts")
     public List<Account> AccountList()
     {
-       return  this.ar.findAll();
+       List<Account> accounts =this.ar.findAll();
+       accounts.forEach(c->{
+          Customer customer =customerRestClient.FindCustomerByID(c.getCustomerId());
+          c.setCustomer(customer);
+       });
+       return accounts;
     }
     @GetMapping("Accounts/{id}")
     public Account getAccount(@PathVariable String id)
